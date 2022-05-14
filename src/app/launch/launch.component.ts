@@ -14,8 +14,8 @@ export class LaunchComponent implements OnInit {
     SMART.authorize({
       iss: 'https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d',
       // fhirServiceUrl: 'https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d',
-      client_id: '5849c0dc-67ed-44c8-8469-fd7813e7eb0c',
-      scope: 'user/Patient.read user/Coverage.read user/Practitioner.read user/ServiceRequest.read patient/Coverage.read',
+      client_id: '404ba9f5-b46b-4cc4-b75a-b1da9049491e',
+      scope: 'user/AllergyIntolerance user/Coverage user/Observation user/Patient user/Practitioner user/ServiceRequest',
       redirect_uri: 'https://luminous-eclair-320f36.netlify.app/home',
     })
 
