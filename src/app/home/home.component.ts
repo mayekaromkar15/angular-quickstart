@@ -8,6 +8,7 @@ import { oauth2 as SMART } from 'fhirclient';
 })
 export class HomeComponent implements OnInit {
 
+  response: any = {};
   constructor() { }
 
   ngOnInit(): void {
@@ -15,32 +16,29 @@ export class HomeComponent implements OnInit {
     var myApp: any = {}
 
     SMART.ready()
-      .then(function (client) {
+      .then((client) => {
         myApp.smart = client
         console.log(client)
         doRequests()
       })
 
-    async function doRequests() {
+    async function doRequests(this: any) {
 
-      var loincs = [encodeURIComponent("http://loinc.org|4544-3"), encodeURIComponent("http://loinc.org|444-1")]
-      console.log(loincs)
-      var obs = await fetch(myApp.smart.state.serverUrl + "/Patient?_id=" + myApp.smart.patient.id + "&limit=50&code=" + loincs.join(","), {
+      // var loincs = [encodeURIComponent("http://loinc.org|4544-3"), encodeURIComponent("http://loinc.org|444-1")]
+      // console.log(loincs)
+      console.log(myApp.smart.patient.id)
+      var obs = await fetch(myApp.smart.state.serverUrl + "/Patient?_id=" + myApp.smart.patient.id, {
         headers: {
           "Accept": "application/json+fhir",
           "Authorization": "Bearer " + myApp.smart.state.tokenResponse.access_token
         }
-      }).then(function (data) {
+      }).then((data) => {
         return data
       })
       console.log(obs)
 
-      var response = await obs.json()
-      console.log(response)
-
-      console.log(myApp)
-      console.log(myApp.vue)
-
+      this.response = await obs.json()
+      console.log(this.response)
     }
   }
 
