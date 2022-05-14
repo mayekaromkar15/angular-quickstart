@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
 
       var loincs = [encodeURIComponent("http://loinc.org|4544-3"), encodeURIComponent("http://loinc.org|444-1")]
       console.log(loincs)
-      var obs = await fetch(myApp.smart.state.serverUrl + "/Patient?patient=" + myApp.smart.patient.id + "&limit=50&code=" + loincs.join(","), {
+      var obs = await fetch(myApp.smart.state.serverUrl + "/Patient?_id=" + myApp.smart.patient.id + "&limit=50&code=" + loincs.join(","), {
         headers: {
           "Accept": "application/json+fhir",
           "Authorization": "Bearer " + myApp.smart.state.tokenResponse.access_token
