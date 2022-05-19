@@ -9,16 +9,22 @@ import { oauth2 as SMART } from 'fhirclient';
 export class HomeComponent implements OnInit {
 
   response: any = {};
+  accessToken: string = '';
+  refreshToken: string = '';
   constructor() { }
 
   ngOnInit(): void {
 
-    var myApp: any = {}
+    var myApp: any = {};
+
 
     SMART.ready()
       .then((client) => {
         myApp.smart = client
         console.log(client)
+        console.log(myApp.smart.state.tokenResponse.refresh_token)
+        this.accessToken = myApp.smart.state.tokenResponse.access_token;
+        this.refreshToken = myApp.smart.state.tokenResponse.refresh_token;
         console.log(JSON.stringify(client))
         doRequests()
       })
