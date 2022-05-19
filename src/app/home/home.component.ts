@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
       .then((client) => {
         myApp.smart = client
         console.log(client)
+        console.log(JSON.stringify(client))
         doRequests()
       })
 
@@ -35,10 +36,10 @@ export class HomeComponent implements OnInit {
       }).then((data) => {
         return data
       })
-      console.log(obs)
+      // console.log(obs)
 
       this.response = await obs.json()
-      console.log(this.response)
+      // console.log(typeof this.response)
     }
   }
 
