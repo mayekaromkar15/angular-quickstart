@@ -15,7 +15,7 @@ export class LaunchComponent implements OnInit {
       iss: 'https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d',
       // fhirServiceUrl: 'https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d',
       client_id: '404ba9f5-b46b-4cc4-b75a-b1da9049491e',
-      scope: 'user/AllergyIntolerance user/Coverage user/Observation user/Patient user/Practitioner user/ServiceRequest',
+      scope: 'user/AllergyIntolerance.read user/Coverage.read user/Observation.read user/Patient.read user/Practitioner.read user/ServiceRequest.read launch online_access openid profile',
       redirect_uri: 'https://luminous-eclair-320f36.netlify.app/home',
     })
 
