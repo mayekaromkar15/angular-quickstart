@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
   response: any = {};
   accessToken: string = '';
   refreshToken: string = '';
-  constructor() { }
+  constructor(private window: Window) { }
 
   ngOnInit(): void {
 
@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
       .then((client) => {
         myApp.smart = client
         console.log(client)
+        console.log(this.window)
         console.log(myApp.smart.state.tokenResponse.refresh_token)
         this.accessToken = myApp.smart.state.tokenResponse.access_token;
         this.refreshToken = myApp.smart.state.tokenResponse.refresh_token;
