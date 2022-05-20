@@ -21,10 +21,9 @@ export class HomeComponent implements OnInit {
     SMART.ready()
       .then((client) => {
         myApp.smart = client
-        debugger
         console.log(client)
         console.log(this.window)
-        console.log(myApp.smart.state.tokenResponse.refresh_token)
+        // console.log(myApp.smart.state.tokenResponse.refresh_token)
         this.accessToken = myApp.smart.state.tokenResponse.access_token;
         this.refreshToken = myApp.smart.state.tokenResponse.refresh_token;
         console.log(JSON.stringify(client))
